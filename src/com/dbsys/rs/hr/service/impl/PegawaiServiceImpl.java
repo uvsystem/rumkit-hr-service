@@ -24,6 +24,10 @@ public class PegawaiServiceImpl implements PegawaiService {
 	@Override
 	@Transactional(readOnly = false)
 	public Pegawai save(Pegawai pegawai) {
+		if (pegawai.getKode() == null) {
+			Integer kode = Math.abs(pegawai.getPenduduk().hashCode());
+			pegawai.setKode(kode.toString());
+		}
 		return pegawaiRepository.save(pegawai);
 	}
 
