@@ -97,4 +97,24 @@ public class PerawatControllerTest {
 			.andExpect(jsonPath("$.tipe").value("LIST"))
 			.andExpect(jsonPath("$.message").value("Berhasil"));
 	}
+
+	@Test
+	public void testCariNama() throws Exception {
+		this.mockMvc.perform(
+				get(String.format("/perawat/keyword/%s", pegawai.getNama()))
+				.contentType(MediaType.APPLICATION_JSON)
+			)
+			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.message").value("Berhasil"));
+	}
+
+	@Test
+	public void testCariNip() throws Exception {
+		this.mockMvc.perform(
+				get(String.format("/perawat/keyword/%s", pegawai.getNip()))
+				.contentType(MediaType.APPLICATION_JSON)
+			)
+			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.message").value("Berhasil"));
+	}
 }

@@ -33,6 +33,15 @@ public interface PegawaiService {
 	List<Dokter> getDokter();
 
 	/**
+	 * Mengambil semua dokter sesuai keyword.
+	 * 
+	 * @param keyword
+	 * 
+	 * @return daftar dokter
+	 */
+	List<Dokter> getDokter(String keyword);
+
+	/**
 	 * Mengambil semua perawat
 	 * 
 	 * @return daftar perawat
@@ -40,11 +49,30 @@ public interface PegawaiService {
 	List<Perawat> getPerawat();
 
 	/**
+	 * mengambil semua perawat sesuai keyword.
+	 * 
+	 * @param keyword
+	 * 
+	 * @return daftar perawat
+	 */
+	List<Perawat> getPerawat(String keyword);
+	
+	/**
 	 * Mengambil semua apoteker.
 	 * 
 	 * @return daftar apoteker
 	 */
 	List<Apoteker> getApoteker();
+
+
+	/**
+	 * Mengambil semua apoteker berdasarkan keyword.
+	 * 
+	 * @param keyword
+	 * 
+	 * @return daftar apoteker
+	 */
+	List<Apoteker> getApoteker(String keyword);
 
 	/**
 	 * Mengambil semua pekerja
@@ -52,5 +80,14 @@ public interface PegawaiService {
 	 * @return daftar pekerja
 	 */
 	List<Pekerja> getPekerja();
+
+	/**
+	 * Mengambil semua pekerja sesuai keyword.
+	 * 
+	 * @param keyword
+	 * 
+	 * @return daftar pekerja
+	 */
+	List<Pekerja> getPekerja(String keyword);
 
 }

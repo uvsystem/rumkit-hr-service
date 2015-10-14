@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.dbsys.rs.lib.entity.Apoteker;
 import com.dbsys.rs.lib.entity.Dokter;
@@ -21,6 +22,9 @@ public interface PegawaiRepository extends JpaRepository<Pegawai, Long> {
 	@Query("FROM Dokter dokter")
 	List<Dokter> findAllDokter();
 
+	@Query("FROM Dokter d WHERE d.nip LIKE %:keyword% OR d.penduduk.nama LIKE %:keyword%")
+	List<Dokter> findDokter(@Param("keyword") String keyword);
+
 	/**
 	 * Mengambil semua perawat.
 	 * 
@@ -28,6 +32,9 @@ public interface PegawaiRepository extends JpaRepository<Pegawai, Long> {
 	 */
 	@Query("FROM Perawat perawat")
 	List<Perawat> findAllPerawat();
+
+	@Query("FROM Perawat p WHERE p.nip LIKE %:keyword% OR p.penduduk.nama LIKE %:keyword%")
+	List<Perawat> findPerawat(@Param("keyword") String keyword);
 
 	/**
 	 * Mengambil semua apoteker.
@@ -37,6 +44,9 @@ public interface PegawaiRepository extends JpaRepository<Pegawai, Long> {
 	@Query("FROM Apoteker apoteker")
 	List<Apoteker> findAllApoteker();
 
+	@Query("FROM Apoteker a WHERE a.nip LIKE %:keyword% OR a.penduduk.nama LIKE %:keyword%")
+	List<Apoteker> findApoteker(@Param("keyword") String keyword);
+
 	/**
 	 * Mengambil semua pekerja.
 	 * 
@@ -44,5 +54,8 @@ public interface PegawaiRepository extends JpaRepository<Pegawai, Long> {
 	 */
 	@Query("FROM Pekerja pekerja")
 	List<Pekerja> findAllPekerja();
+
+	@Query("FROM Pekerja p WHERE p.nip LIKE %:keyword% OR p.penduduk.nama LIKE %:keyword%")
+	List<Pekerja> findPekerja(@Param("keyword") String keyword);
 
 }

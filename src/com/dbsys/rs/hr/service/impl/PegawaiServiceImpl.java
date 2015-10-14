@@ -50,4 +50,24 @@ public class PegawaiServiceImpl implements PegawaiService {
 	public List<Pekerja> getPekerja() {
 		return pegawaiRepository.findAllPekerja();
 	}
+
+	@Override
+	public List<Dokter> getDokter(String keyword) {
+		return pegawaiRepository.findDokter(keyword);
+	}
+
+	@Override
+	public List<Perawat> getPerawat(String keyword) {
+		return pegawaiRepository.findPerawat(keyword);
+	}
+
+	@Override
+	public List<Apoteker> getApoteker(String keyword) {
+		return pegawaiRepository.findApoteker(keyword);
+	}
+
+	@Override
+	public List<Pekerja> getPekerja(String keyword) {
+		return pegawaiRepository.findPekerja(keyword);
+	}
 }

@@ -6,6 +6,7 @@ import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +37,13 @@ public class PerawatController {
 	@ResponseBody
 	public ListEntityRestMessage<Perawat> getAll() throws ApplicationException, PersistenceException {
 		List<Perawat> list = pegawaiService.getPerawat();
+		return ListEntityRestMessage.createListPerawat(list);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/keyword/{keyword}")
+	@ResponseBody
+	public ListEntityRestMessage<Perawat> get(@PathVariable String keyword) throws ApplicationException, PersistenceException {
+		List<Perawat> list = pegawaiService.getPerawat(keyword);
 		return ListEntityRestMessage.createListPerawat(list);
 	}
 }
