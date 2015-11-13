@@ -70,7 +70,7 @@ public class PekerjaControllerTest {
 	@Test
 	public void testSave() throws Exception {
 		this.mockMvc.perform(
-				post("/pekerja")
+				post("/pegawai")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("{\"agama\": \"Kristen\","
 						+ "\"darah\": \"O\","
@@ -79,7 +79,8 @@ public class PekerjaControllerTest {
 						+ "\"nik\":\"nik 2\","
 						+ "\"nip\":\"nip 2\","
 						+ "\"tanggalLahir\":\"1991-12-05\","
-						+ "\"telepon\":\"telepon 2\"}")
+						+ "\"telepon\":\"telepon 2\","
+						+ "\"name\": \"PEKERJA\"}")
 						
 			)
 			.andExpect(jsonPath("$.tipe").value("ENTITY"))
@@ -91,7 +92,7 @@ public class PekerjaControllerTest {
 	@Test
 	public void testGetAll() throws Exception {
 		this.mockMvc.perform(
-				get("/pekerja")
+				get("/pegawai")
 				.contentType(MediaType.APPLICATION_JSON)
 			)
 			.andExpect(jsonPath("$.tipe").value("LIST"))
@@ -101,7 +102,7 @@ public class PekerjaControllerTest {
 	@Test
 	public void testCariNama() throws Exception {
 		this.mockMvc.perform(
-				get(String.format("/pekerja/keyword/%s", pegawai.getNama()))
+				get(String.format("/pegawai/keyword/%s", pegawai.getNama()))
 				.contentType(MediaType.APPLICATION_JSON)
 			)
 			.andExpect(jsonPath("$.tipe").value("LIST"))
@@ -111,7 +112,37 @@ public class PekerjaControllerTest {
 	@Test
 	public void testCariNip() throws Exception {
 		this.mockMvc.perform(
-				get(String.format("/pekerja/keyword/%s", pegawai.getNip()))
+				get(String.format("/pegawai/keyword/%s", pegawai.getNip()))
+				.contentType(MediaType.APPLICATION_JSON)
+			)
+			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.message").value("Berhasil"));
+	}
+
+	@Test
+	public void testGetAllPekerja() throws Exception {
+		this.mockMvc.perform(
+				get(String.format("/pegawai/class/%s", Pekerja.class.getSimpleName()))
+				.contentType(MediaType.APPLICATION_JSON)
+			)
+			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.message").value("Berhasil"));
+	}
+
+	@Test
+	public void testCariPekerjaNama() throws Exception {
+		this.mockMvc.perform(
+				get(String.format("/pegawai/keyword/%s/class/%s", pegawai.getNama(), Pekerja.class.getSimpleName()))
+				.contentType(MediaType.APPLICATION_JSON)
+			)
+			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.message").value("Berhasil"));
+	}
+
+	@Test
+	public void testCariPekerjaNip() throws Exception {
+		this.mockMvc.perform(
+				get(String.format("/pegawai/keyword/%s/class/%s", pegawai.getNip(), Pekerja.class.getSimpleName()))
 				.contentType(MediaType.APPLICATION_JSON)
 			)
 			.andExpect(jsonPath("$.tipe").value("LIST"))
