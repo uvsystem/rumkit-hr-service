@@ -80,10 +80,11 @@ public class PekerjaControllerTest {
 						+ "\"nip\":\"nip 2\","
 						+ "\"tanggalLahir\":\"1991-12-05\","
 						+ "\"telepon\":\"telepon 2\","
-						+ "\"name\": \"PEKERJA\"}")
+						+ "\"tipePegawai\": \"PEKERJA\"}")
 						
 			)
 			.andExpect(jsonPath("$.tipe").value("ENTITY"))
+			.andExpect(jsonPath("$.model.tipe").value("PEKERJA"))
 			.andExpect(jsonPath("$.message").value("Berhasil"));
 		
 		assertEquals(count + 2, pegawaiRepository.count());
