@@ -129,6 +129,7 @@ public class DokterControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 			)
 			.andExpect(jsonPath("$.tipe").value("LIST"))
+			.andExpect(jsonPath("$.list.[0].tipe").value("DOKTER"))
 			.andExpect(jsonPath("$.message").value("Berhasil"));
 	}
 
