@@ -82,6 +82,7 @@ public class PegawaiServiceImpl implements PegawaiService {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void hapus(Long id) {
 		pegawaiRepository.delete(id);
 	}
