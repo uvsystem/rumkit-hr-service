@@ -17,6 +17,7 @@ import com.dbsys.rs.hr.service.PegawaiService;
 import com.dbsys.rs.lib.ApplicationException;
 import com.dbsys.rs.lib.EntityRestMessage;
 import com.dbsys.rs.lib.ListEntityRestMessage;
+import com.dbsys.rs.lib.RestMessage;
 import com.dbsys.rs.lib.entity.Apoteker;
 import com.dbsys.rs.lib.entity.Dokter;
 import com.dbsys.rs.lib.entity.Pegawai;
@@ -97,5 +98,12 @@ public class PegawaiController {
 			listPegawai.add((Pegawai) object);
 		
 		return ListEntityRestMessage.createListPegawai(listPegawai);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+	@ResponseBody
+	public RestMessage hapus(@PathVariable Long id) throws ApplicationException, PersistenceException {
+		pegawaiService.hapus(id);
+		return RestMessage.success();
 	}
 }

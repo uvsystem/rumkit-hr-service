@@ -106,4 +106,6 @@ public interface PegawaiService {
 	 */
 	List<Pegawai> getPegawai(String keyword);
 
+	void hapus(Long id);
+
 }

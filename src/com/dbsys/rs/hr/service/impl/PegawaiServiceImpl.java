@@ -80,4 +80,9 @@ public class PegawaiServiceImpl implements PegawaiService {
 	public List<Pegawai> getPegawai(String keyword) {
 		return pegawaiRepository.findByNipContainingOrPenduduk_NamaContaining(keyword, keyword);
 	}
+
+	@Override
+	public void hapus(Long id) {
+		pegawaiRepository.delete(id);
+	}
 }
