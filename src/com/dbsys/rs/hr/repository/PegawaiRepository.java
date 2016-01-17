@@ -58,4 +58,6 @@ public interface PegawaiRepository extends JpaRepository<Pegawai, Long> {
 	@Query("FROM Pekerja p WHERE p.nip LIKE %:keyword% OR p.penduduk.nama LIKE %:keyword%")
 	List<Pekerja> findPekerja(@Param("keyword") String keyword);
 
+	List<Pegawai> findByNipContainingOrPenduduk_NamaContaining(String nip, String nama);
+
 }

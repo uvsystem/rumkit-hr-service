@@ -90,4 +90,22 @@ public interface PegawaiService {
 	 */
 	List<Pekerja> getPekerja(String keyword);
 
+	/**
+	 * Mengambil semua data pegawai.
+	 * 
+	 * @return daftar pegawai
+	 */
+	List<Pegawai> getPegawai();
+
+	/**
+	 * Mengambil semua pekerja sesuai keyword.
+	 * 
+	 * @param keyword
+	 * 
+	 * @return daftar pegawai
+	 */
+	List<Pegawai> getPegawai(String keyword);
+
+	void hapus(Long id);
+
 }
