@@ -2,11 +2,11 @@ package com.dbsys.rs.hr.service;
 
 import java.util.List;
 
-import com.dbsys.rs.lib.entity.Apoteker;
-import com.dbsys.rs.lib.entity.Dokter;
-import com.dbsys.rs.lib.entity.Pegawai;
-import com.dbsys.rs.lib.entity.Pekerja;
-import com.dbsys.rs.lib.entity.Perawat;
+import com.dbsys.rs.hr.entity.Apoteker;
+import com.dbsys.rs.hr.entity.Dokter;
+import com.dbsys.rs.hr.entity.Pegawai;
+import com.dbsys.rs.hr.entity.Pekerja;
+import com.dbsys.rs.hr.entity.Perawat;
 
 /**
  * Interface untuk mengelola data pegawai.

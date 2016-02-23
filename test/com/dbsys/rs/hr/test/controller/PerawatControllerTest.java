@@ -22,10 +22,10 @@ import org.springframework.web.context.WebApplicationContext;
 import com.dbsys.rs.hr.repository.PegawaiRepository;
 import com.dbsys.rs.hr.service.PegawaiService;
 import com.dbsys.rs.hr.test.TestConfig;
-import com.dbsys.rs.lib.DateUtil;
-import com.dbsys.rs.lib.entity.Pegawai;
-import com.dbsys.rs.lib.entity.Penduduk.Kelamin;
-import com.dbsys.rs.lib.entity.Perawat;
+import com.dbsys.rs.DateUtil;
+import com.dbsys.rs.hr.entity.Pegawai;
+import com.dbsys.rs.hr.entity.Penduduk.Kelamin;
+import com.dbsys.rs.hr.entity.Perawat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
